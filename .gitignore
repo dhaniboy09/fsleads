@@ -1,0 +1,5 @@
+*.pyc
+.virtualenv/
+!.idea/
+.idea/*
+.env
