@@ -29,7 +29,7 @@ SECRET_KEY = '#(&o_wp_27g9!q#5$q5dg((&%(293&)otu_mx+ri_h%%#q1lf@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -102,19 +102,6 @@ else:
             'PORT': os.environ['PGPORT'],
         }
     }
-
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ['PGDATABASE'],
-#         'USER': os.environ['PGUSER'],
-#         'PASSWORD': os.environ['PGPASSWORD'],
-#         'HOST': os.environ['PGHOST'],
-#         'PORT': os.environ['PGPORT'],
-#     }
-# }
 
 
 # Password validation
