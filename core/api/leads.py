@@ -32,7 +32,7 @@ class LeadSerializer(serializers.ModelSerializer):
 
 
 class LeadsViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
-                   mixins.DestroyModelMixin, viewsets.GenericViewSet):
-    queryset = Lead.objects.all()
+                   mixins.DestroyModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
+    queryset = Lead.objects.all().order_by('-last_updated_timestamp')
     serializer_class = LeadSerializer
     permission_classes = (LeadApiKeyPermission,)
