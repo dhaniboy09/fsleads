@@ -78,16 +78,43 @@ WSGI_APPLICATION = 'fsleads.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['PGDATABASE'],
-        'USER': os.environ['PGUSER'],
-        'PASSWORD': os.environ['PGPASSWORD'],
-        'HOST': os.environ['PGHOST'],
-        'PORT': os.environ['PGPORT'],
+USE_DOCKER_CONFIG = os.environ['USE_DOCKER_CONFIG']
+
+if USE_DOCKER_CONFIG == 'True':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['DOCKER_PGDATABASE'],
+            'USER': os.environ['DOCKER_PGUSER'],
+            'HOST': os.environ['DOCKER_PGHOST'],
+            'PASSWORD': os.environ['DOCKER_PGPASSWORD'],
+            'PORT': os.environ['PGPORT'],
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['PGDATABASE'],
+            'USER': os.environ['PGUSER'],
+            'PASSWORD': os.environ['PGPASSWORD'],
+            'HOST': os.environ['PGHOST'],
+            'PORT': os.environ['PGPORT'],
+        }
+    }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ['PGDATABASE'],
+#         'USER': os.environ['PGUSER'],
+#         'PASSWORD': os.environ['PGPASSWORD'],
+#         'HOST': os.environ['PGHOST'],
+#         'PORT': os.environ['PGPORT'],
+#     }
+# }
 
 
 # Password validation
