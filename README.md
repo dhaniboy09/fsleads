@@ -21,7 +21,7 @@ Alternatively, run `touch .env` and manually paste the env vars below in the new
     DOCKER_PGHOST=db
     LEADS_API_KEY=M6ol0RI47FDANo8wAnBxYw6ZVBbi61whq6wYOKpi
     ```
-    (.env file contents are only posted here for convenience. For real projects an env variable management package e.g. `helm` will be used)
+    (.env file contents are only posted here for convenience)
 - Run `docker-compose up`
 - When all containers are running 
     - Open up a new terminal window. 
