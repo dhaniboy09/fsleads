@@ -14,11 +14,11 @@ import os
 
 from pathlib import Path
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -30,7 +30,6 @@ SECRET_KEY = '#(&o_wp_27g9!q#5$q5dg((&%(293&)otu_mx+ri_h%%#q1lf@'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -74,35 +73,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'fsleads.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-USE_DOCKER_CONFIG = os.environ['USE_DOCKER_CONFIG']
-
-if USE_DOCKER_CONFIG == 'True':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['DOCKER_PGDATABASE'],
-            'USER': os.environ['DOCKER_PGUSER'],
-            'HOST': os.environ['DOCKER_PGHOST'],
-            'PASSWORD': os.environ['DOCKER_PGPASSWORD'],
-            'PORT': os.environ['PGPORT'],
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['DOCKER_PGDATABASE'],
+        'USER': os.environ['DOCKER_PGUSER'],
+        'HOST': os.environ['DOCKER_PGHOST'],
+        'PASSWORD': os.environ['DOCKER_PGPASSWORD'],
+        'PORT': os.environ['PGPORT'],
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['PGDATABASE'],
-            'USER': os.environ['PGUSER'],
-            'PASSWORD': os.environ['PGPASSWORD'],
-            'HOST': os.environ['PGHOST'],
-            'PORT': os.environ['PGPORT'],
-        }
-    }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -139,7 +122,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # LEADS API
 LEADS_API_KEY = os.environ['LEADS_API_KEY']

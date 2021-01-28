@@ -9,10 +9,10 @@ services:
       - POSTGRES_USER=${DOCKER_PGUSER}
       - POSTGRES_PASSWORD=${DOCKER_PGPASSWORD}
     networks:
-      - fs-net
+      - fsbackend
     env_file:
       - .env
-  web:
+  fsweb:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -20,9 +20,9 @@ services:
     ports:
       - "8000:8000"
     networks:
-      - fs-net
+      - fsbackend
     depends_on:
       - db
 networks:
-  fs-net:
+  fsbackend:
     driver: bridge
