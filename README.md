@@ -6,8 +6,7 @@
 
 - Ensure you have a postgresql running on your machine. If postgresql is installed via homebrew, you can run `brew services start postgresql` to fire it up.
 - `cd` into the project directory, 
-- Run `touch .env`
-- Copy and paste the following into the newly created `.env` file
+- Copy the env vars below and run `pbpaste > .env`. Alternatively, run `touch .env` and manually paste the env vars below in the newly created `.env` file
     ```bash
     PGHOST=localhost
     PGPORT=5432
