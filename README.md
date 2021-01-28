@@ -17,6 +17,7 @@
     DOCKER_PGHOST=db
     LEADS_API_KEY=M6ol0RI47FDANo8wAnBxYw6ZVBbi61whq6wYOKpi
     ```
+    (.env file contents are only posted here for convenience. For real projects an env variable management package e.g. `helm` will be used)
 - Run `docker-compose up`
 - When all containers are running, open up a new terminal window, `cd` into the project directory and run `docker-compose exec fsweb python manage.py migrate --no-input`, which will run all migrations
 - The API should now be accessible on 0.0.0.0:8000
